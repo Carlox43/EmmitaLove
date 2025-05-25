@@ -1,0 +1,408 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Estilos generales para fondo */
+body {
+  background-image: url("../public/body.webp");
+  background-size: cover; /* Que la imagen cubra todo el fondo */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* No repetir la imagen */
+  background-attachment: fixed; /* Opcional: que el fondo no se mueva al hacer scroll */
+  font-family: "Segoe UI", sans-serif;
+  color: #a14b71;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Contenedor adaptado y centrado */
+.container {
+  background: #fff0f5;
+  padding: 1.5rem 1rem; /* Un poco menos horizontal para móviles */
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(255, 182, 193, 0.4);
+  max-width: 600px; /* Limitar ancho para móviles y tablets */
+  width: 90%; /* Ocupar todo el ancho disponible hasta max-width */
+  box-sizing: border-box;
+  margin: 2rem auto; /* Centrar en pantalla */
+}
+
+/* Título principal */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Texto legible */
+.dedication {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.counter {
+  margin-top: 2rem;
+}
+
+.counter p {
+  font-size: 1.2rem;
+  color: #a14b71;
+}
+
+#daysTogether {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff69b4;
+}
+
+/* Contenedor de corazones flotantes */
+.hearts-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  color: #ff69b4;
+  font-size: 1.5rem;
+  animation: floatHeart 5s linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.love-things {
+  margin-top: 2rem;
+}
+
+#loveButton {
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
+
+#loveButton:hover {
+  background: #ff87a3;
+}
+
+#loveMessage {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #a14b71;
+  padding: 0 1rem;
+}
+
+.forever {
+  margin-top: 2.5rem;
+}
+
+#foreverButton {
+  background-color: #ff6fa1;
+  color: white;
+  border: none;
+  padding: 0.9rem 1.4rem;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.4);
+}
+
+#foreverButton:hover {
+  background-color: #e94d86;
+}
+
+#foreverMessage {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #d63384;
+  font-weight: bold;
+  animation: pulse 1s ease infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Foto en forma de corazón */
+.love-photo-wrapper {
+  width: 200px;
+  height: 200px;
+  padding: 4px; /* grosor del borde */
+  background: linear-gradient(45deg, #ff69b4, #ffc0cb);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50% / 50%; /* puedes ajustar o quitar si quieres */
+  animation: fadeInHeart 1.2s ease-out;
+  clip-path: polygon(
+    50% 90%,
+    20% 70%,
+    5% 40%,
+    20% 20%,
+    35% 10%,
+    50% 20%,
+    65% 10%,
+    80% 20%,
+    95% 40%,
+    80% 70%
+  );
+}
+
+.love-photo-heart {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(
+    50% 90%,
+    20% 70%,
+    5% 40%,
+    20% 20%,
+    35% 10%,
+    50% 20%,
+    65% 10%,
+    80% 20%,
+    95% 40%,
+    80% 70%
+  );
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+.love-photo-wrapper:hover .love-photo-heart {
+  transform: scale(1.05);
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Animaciones */
+@keyframes fadeInHeart {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+/* Botón de música */
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.5);
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+}
+
+#musicToggle:hover {
+  background-color: #ff85c1;
+}
+
+/* Sección de galería */
+.gallery-section {
+  margin-top: 2.5rem;
+  color: #a14b71;
+  max-width: 450px; /* Limitar ancho para la galería igual que container */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.gallery-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #e91e63;
+  text-align: center;
+}
+
+/* Estilos para swiper */
+.swiper {
+  width: 100%; /* Usar el 100% del contenedor */
+  height: 280px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.25);
+  background: #fff;
+  margin: 0 auto 3rem auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Botones navegación */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #e91e63;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.3));
+  transition: color 0.3s ease;
+  top: 50% !important;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+/* Paginación */
+.swiper-pagination-bullet {
+  background: #e91e63;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Responsive para móviles */
+@media (max-width: 640px) {
+  .swiper {
+    height: 180px;
+  }
+  .container {
+    max-width: 100%; /* Para móvil ocupar todo el ancho con padding */
+    padding: 1rem 0.75rem;
+    border-radius: 15px;
+  }
+  .love-photo-heart {
+    width: 150px;
+    height: 150px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #daysTogether {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .dedication {
+    font-size: 1.2rem;
+  }
+
+  #loveMessage,
+  #foreverMessage {
+    font-size: 1.3rem;
+  }
+}
+
+.separator {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #ff99c8, #ffc0cb);
+  margin: 2rem auto;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.zoom-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.zoom-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 40px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para emmita ❤</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/public/favicon-16x16.png"
+    />
+
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
+  </head>
+  <body>
+    <!-- Corazones flotantes-->
+    <div class="hearts-container"></div>
+    <div class="container">
+      <!--foto principal-->
+      <div class="photo-container">
+        <div class="love-photo-wrapper">
+          <img
+            src="public/nosotros.webp"
+            alt="Carlos y Emmita"
+            class="love-photo-heart"
+          />
+        </div>
+      </div>
+
+      <h1 class="fade-in">Para mi princesa Emmita 💕</h1>
+      <p class="dedication fade-in">
+        hoy celebramos nuestro primer mes juntos, y quiero que sepas que cada
+        momento contigo a sido mágico, Gracias por ser tan especial. 💖
+      </p>
+      <hr class="separator fade-in" />
+      <div class="counter fade-in">
+        <p>Hemos estado juntos por:</p>
+        <p class="days"><span id="daysTogether">0</span> días 💞</p>
+      </div>
+      <div class="gallery-section fade-in">
+        <h1>Nuestros recuerdos del mes</h1>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <!-- Aquí pon tus imágenes -->
+            <div class="swiper-slide">
+              <img src="public/image 1.webp" alt="Foto 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 2.webp" alt="Foto 2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 3.webp" alt="Foto 3" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 4.webp" alt="Foto 4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 5.webp" alt="Foto 5" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 6.webp" alt="Foto 6" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 7.webp" alt="Foto 7" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 8.webp" alt="Foto 8" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 9.webp" alt="Foto 9" />
+            </div>
+            <div class="swiper-slide">
+              <img src="public/image 10.webp" alt="Foto 10" />
+            </div>
+          </div>
+          <!-- Controles -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="zoom-overlay" id="zoomOverlay">
+        <img id="zoomedImage" src="" alt="Imagen ampliada" />
+      </div>
+      <hr class="separator fade-in" />
+      <div class="love-things fade-in">
+        <button id="loveButton">Cosas que amo de vos 💘</button>
+        <p id="loveMessage"></p>
+      </div>
+      <div class="forever fade-in">
+        <button id="foreverButton">
+          💍 Emmita,¿Quieres ser mi compañera de vida?
+        </button>
+        <p id="foreverMessage"></p>
+      </div>
+    </div>
+    <!-- Música de fondo oculta -->
+    <audio id="bgMusic" loop>
+      <source src="public/musicBody.m4a" type="audio/mpeg" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <!-- Botón pequeño para controlar música -->
+    <button id="musicToggle" aria-label="Toggle music">▶️</button>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.getElementById("zoomOverlay");
+        const zoomedImg = document.getElementById("zoomedImage");
+        const swiperImages = document.querySelectorAll(".swiper-slide img");
+
+        swiperImages.forEach((img) => {
+          img.style.cursor = "zoom-in";
+          img.addEventListener("click", () => {
+            zoomedImg.src = img.src;
+            overlay.style.display = "flex";
+          });
+        });
+
+        overlay.addEventListener("click", () => {
+          overlay.style.display = "none";
+          zoomedImg.src = "";
+        });
+      });
+    </script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: { slidesPerView: 1 }, // móvil
+          640: { slidesPerView: 2 }, // tablets
+          1024: { slidesPerView: 3 }, // desktop
+        },
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.getElementById("zoomOverlay");
+        const zoomedImg = document.getElementById("zoomedImage");
+        const swiperImages = document.querySelectorAll(".swiper-slide img");
+
+        swiperImages.forEach((img) => {
+          img.style.cursor = "zoom-in";
+          img.addEventListener("click", () => {
+            zoomedImg.src = img.src;
+            overlay.style.display = "flex";
+          });
+        });
+
+        overlay.addEventListener("click", () => {
+          overlay.style.display = "none";
+          zoomedImg.src = "";
+        });
+      });
+    </script>
+  </body>
+</html>

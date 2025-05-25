@@ -15,7 +15,7 @@ p {
 
 /* Estilos generales para fondo */
 body {
-  background-image: url("../public/body.webp");
+  background-image: url("/public/body.webp");
   background-size: cover; /* Que la imagen cubra todo el fondo */
   background-position: center; /* Centrar la imagen */
   background-repeat: no-repeat; /* No repetir la imagen */

@@ -1,17 +1,20 @@
-// Fecha en la que comenzamos a salir
-const startDate = new Date("2025-05-03");
+// Fecha en la que comenzaron a salir (usando fecha local)
+const startDate = new Date("2025-05-03T00:00:00");
 
-// Fecha actual
-const today = new Date();
+// Obtener fecha actual local
+const now = new Date();
 
-// Diferencia en milisegundos
-const differenceInMs = today - startDate;
+// Obtener solo la parte de la fecha (ignorando la hora)
+const localToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-// Convertir a días
-const daysTogether = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+// Calcular la diferencia en milisegundos
+const diffMs = localToday - startDate;
 
-// Mostrarlo en el HTML 
-document.getElementById("daysTogether").textContent = daysTogether;
+// Calcular los días completos
+const daysTogether = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+// Mostrar en el HTML
+document.getElementById("daysTogether").textContent = daysTogether
 
 // 🩷 Crear corazones flotantes aleatoriamente
 function createFloatingHeart() {
